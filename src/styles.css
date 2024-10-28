@@ -5,8 +5,15 @@ body {
     padding: 0;
 }
 
+header {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px 75px;
+    background-color: #a4a4a4;
+}
+
 .dropDownMenu {
-    position: relative;
     display: inline-block;
 }
 
