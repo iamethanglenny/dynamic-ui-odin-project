@@ -20,21 +20,48 @@
         </div>
     </header>
     <div class="content">
-        <div class="carousel-container">
-            <div class="carousel">
-                <img src="">
-                <img src="">
-                <img src="">
-                <img src="">
-                <img src="">
+        <div class="slideshow-container">
+
+            <div class="mySlide fade">
+                <div class="numbertext">1 / 5</div>
+                <img src="sea.jpg">
+                <div class="text">Caption Text</div>
             </div>
+
+            <div class="mySlide fade">
+                <div class="numbertext">2 / 5</div>
+                <img src="tree.jpg">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class="mySlide fade">
+                <div class="numbertext">3 / 5</div>
+                <img src="field.jpg">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class="mySlide fade">
+                <div class="numbertext">4 / 5</div>
+                <img src="car.jpg">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class="mySlide fade">
+                <div class="numbertext">5 / 5</div>
+                <img src="lake.jpg">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
         </div>
-        <div class="nav-buttons">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
         </div>
     </div>
 </body>
