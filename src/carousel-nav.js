@@ -1,40 +1,52 @@
 
+export const carousel = (() => {
+    let currentIndex = 0;
+    let slideInterval;
+    const slides = document.querySelectorAll(".carousel-slides .slide");
+    const dots = document.querySelectorAll(".dot");
 
-const slideshow = () => {
+    const showSlide = (index) => {
+        if (index >= slides.length) currentIndex = 0;
+        else if (index < 0) currentIndex = slides.length - 1;
+        else currentIndex = index;
 
-    let slideIndex = 1;
+        document.querySelector(".carousel-slides").style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[currentIndex].classList.add("active");
+    };
 
-    document.addEventListener("DOMContentLoaded", () => {
-        showSlides(slideIndex);
-    });
+    const nextSlide = () => {
+        showSlide(currentIndex + 1);
+    };
 
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
+    const prevSlide = () => {
+        showSlide(currentIndex - 1);
+    };
 
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
+    const goToSlide = (index) => {
+        showSlide(index);
+    };
 
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlide");
-        let dots = document.getElementsByClassName("dot");
+    const startAutoSlide = () => {
+        slideInterval = setInterval(nextSlide, 5000);
+    };
 
-        if (slides.length === 0 || dots.length === 0) return;
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += "active";
-    }
-    return { plusSlides, currentSlide };
-}
+    const stopAutoSlide = () => {
+        clearInterval(slideInterval);
+    };
 
+    const init = () => {
+        showSlide(currentIndex);
+        startAutoSlide();
 
-export { slideshow }
+        document.querySelector(".carousel-container").addEventListener("mouseover", stopAutoSlide);
+        document.querySelector(".carousel-container").addEventListener("mouseout", startAutoSlide);
+    };
+
+    return {
+        init,
+        nextSlide,
+        prevSlide,
+        goToSlide,
+    };
+})();

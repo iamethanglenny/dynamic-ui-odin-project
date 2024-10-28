@@ -2,14 +2,6 @@
     box-sizing:border-box
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 header {
     width: 100vw;
     display: flex;
@@ -54,78 +46,77 @@ header {
     transform: translateY(0);
 }
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f3f3f3;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.mySlide {
-    display: none;
+.carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
 }
 
-.prev, .next {
-    cursor: pointer;
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.carousel-arrow {
     position: absolute;
     top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    z-index: 10;
     user-select: none;
 }
 
+.prev {
+    left: 10px;
+}
+
 .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+    right: 10px;
 }
-  
-  /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
-  
-  /* Caption text */
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
+
+.carousel-dots {
     text-align: center;
-}
-  
-  /* Number text (1/3 etc) */
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
     position: absolute;
-    top: 0;
+    bottom: 10px;
+    width: 100%;
 }
 
 .dot {
     cursor: pointer;
     height: 15px;
     width: 15px;
-    margin: 0 2px;
+    margin: 0 3px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.6s ease;
+    transition: background-color 0.3s ease;
 }
-  
-.active, .dot:hover {
+
+.dot.active {
     background-color: #717171;
-}
-
-img {
-    width: 100%;
-
 }

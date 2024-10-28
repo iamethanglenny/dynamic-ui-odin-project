@@ -1,11 +1,19 @@
 import "./styles.css";
 import { initializeDropdowns } from "./menu.js";
-import { slideshow } from "./carousel-nav.js";
+import { carousel } from './carousel-nav.js';
 
-const { plusSlides, currentSlide } = slideshow();
+document.addEventListener("DOMContentLoaded", () => {
+    // Initialize the carousel
+    carousel.init();
 
-window.plusSlides = plusSlides;
-window.currentSlide = currentSlide;
+    // Select arrow elements
+    const prevArrow = document.getElementById("prev-arrow");
+    const nextArrow = document.getElementById("next-arrow");
+
+    // Add click event listeners to arrows
+    prevArrow.addEventListener("click", () => carousel.prevSlide());
+    nextArrow.addEventListener("click", () => carousel.nextSlide());
+});
 
 document.addEventListener('DOMContentLoaded', initializeDropdowns);
 
